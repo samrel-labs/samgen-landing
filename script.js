@@ -129,7 +129,7 @@
     const teamData = {
         fa: [
             { name: 'سعید علیدوست', role: 'بنیان‌گذار و مدیرعامل', bio: 'بیش از ۱۵ سال تجربه در مدیریت استراتژیک، سرمایه‌گذاری و توسعه کسب‌وکار.', initial: 'س', image: 'team/saeedalidoost.png' },
-            { name: 'سبحان علیدوست', role: 'عضو هیئت مدیره', bio: 'کارشناس ارشد مدیریت مالی با سابقه درخشان در بانک‌داری و سرمایه‌گذاری.', initial: 'س', image: 'team/no-photo.svg' },
+            { name: 'سبحان علیدوست', role: 'عضو هیئت مدیره', bio: 'کارشناس ارشد مدیریت مالی با سابقه درخشان در بانک‌داری و سرمایه‌گذاری.', initial: 'س', image: 'team/sobhanalidoost.png' },
             { name: 'فاطمه علیدوست', role: 'عضو هیئت مدیره', bio: 'متخصص حقوق تجارت و قراردادهای بین‌المللی با ۱۲ سال تجربه.', initial: 'ف', image: 'team/no-photo.svg' },
             { name: 'سام علیدوست', role: 'مدیر بازرگانی', bio: 'کارشناس ارشد بازرگانی بین‌المللی و توسعه بازارهای جهانی.', initial: 'س', image: 'team/no-photo.svg' },
             { name: 'سودا علیدوست', role: 'مدیر مالی', bio: 'متخصص مدیریت مالی، بودجه‌ریزی و کنترل هزینه‌ها در شرکت‌های بزرگ.', initial: 'س', image: 'team/no-photo.svg' },
@@ -137,7 +137,7 @@
         ],
         en: [
             { name: 'Saeed Alidoost', role: 'Founder & CEO', bio: 'Over 15 years of experience in strategic management, investment, and business development.', initial: 'S', image: 'team/saeedalidoost.png' },
-            { name: 'Sobhan Alidoost', role: 'Board Member', bio: 'Expert in financial management with a distinguished background in banking and investment.', initial: 'S', image: 'team/no-photo.svg' },
+            { name: 'Sobhan Alidoost', role: 'Board Member', bio: 'Expert in financial management with a distinguished background in banking and investment.', initial: 'S', image: 'team/sobhanalidoost.png' },
             { name: 'Fatemeh Alidoost', role: 'Board Member', bio: 'Specialist in commercial law and international contracts with 12 years of experience.', initial: 'F', image: 'team/no-photo.svg' },
             { name: 'Sam Alidoost', role: 'Commercial Manager', bio: 'Expert in international trade and global market development.', initial: 'S', image: 'team/no-photo.svg' },
             { name: 'Sevda Alidoost', role: 'Financial Manager', bio: 'Specialist in financial management, budgeting, and cost control in large enterprises.', initial: 'S', image: 'team/no-photo.svg' },
