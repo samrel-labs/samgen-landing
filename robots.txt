@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://samgen.ir/sitemap.xml
+Host: https://samgen.ir
