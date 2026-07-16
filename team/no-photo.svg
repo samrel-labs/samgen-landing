@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <!-- گرادیانت پس‌زمینه -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f1f5f9" />
+      <stop offset="100%" stop-color="#e2e8f0" />
+    </linearGradient>
+    <!-- گرادیانت آیکون -->
+    <linearGradient id="iconGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#94a3b8" />
+      <stop offset="100%" stop-color="#64748b" />
+    </linearGradient>
+    <!-- سایه‌ی ملایم -->
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-opacity="0.1" />
+    </filter>
+  </defs>
+
+  <!-- مستطیل زمینه با گوشه‌های گرد -->
+  <rect width="200" height="200" rx="16" fill="url(#bgGrad)" filter="url(#shadow)" />
+
+  <!-- آیکون شخص (سایه‌رو) -->
+  <circle cx="100" cy="72" r="28" fill="url(#iconGrad)" />
+  <ellipse cx="100" cy="145" rx="48" ry="32" fill="url(#iconGrad)" />
+
+  <!-- آیکون دوربین (در گوشه پایین راست برای حس حرفه‌ای) -->
+  <g transform="translate(148, 148)">
+    <rect x="0" y="0" width="36" height="28" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" />
+    <circle cx="18" cy="14" r="10" fill="none" stroke="#94a3b8" stroke-width="1.5" />
+    <circle cx="18" cy="14" r="6" fill="#94a3b8" />
+    <rect x="24" y="2" width="8" height="3" rx="1.5" fill="#94a3b8" />
+    <line x1="0" y1="6" x2="6" y2="6" stroke="#94a3b8" stroke-width="1.5" />
+  </g>
+
+  <!-- خط نازک تزیینی زیر آیکون (اختیاری) -->
+  <line x1="60" y1="180" x2="140" y2="180" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="4 4" />
+</svg>
