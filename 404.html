@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>صفحه پیدا نشد | SAMGEN</title>
+
+  <!-- ===== فونت وزیر ===== -->
+  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" />
+  <!-- ===== Font Awesome ===== -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- ===== Favicon ===== -->
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+
+  <style>
+    /* ========== متغیرها ========== */
+    :root {
+      --bg-primary: #0a0a12;
+      --bg-secondary: #12121f;
+      --text-primary: #f0f0f5;
+      --text-secondary: #b0b0c8;
+      --text-muted: #6a6a8a;
+      --accent: #6c5ce7;
+      --accent-2: #00b894;
+      --border-color: rgba(255,255,255,0.08);
+      --glass-bg: rgba(255,255,255,0.05);
+      --shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #f5f5fa;
+      --bg-secondary: #eaeaef;
+      --text-primary: #0a0a12;
+      --text-secondary: #3a3a4a;
+      --text-muted: #8a8a9a;
+      --border-color: rgba(0,0,0,0.08);
+      --glass-bg: rgba(255,255,255,0.6);
+    }
+
+    /* ========== ریست ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Vazirmatn', 'Vazir', 'Inter', sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      transition: background 0.6s, color 0.6s;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* ===== پس‌زمینه با اورب ===== */
+    .error-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .gradient-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(120px);
+      opacity: 0.4;
+      animation: float 25s ease-in-out infinite;
+    }
+    .orb-1 {
+      width: 500px;
+      height: 500px;
+      background: var(--accent);
+      top: -10%;
+      right: -5%;
+      animation-delay: 0s;
+    }
+    .orb-2 {
+      width: 400px;
+      height: 400px;
+      background: var(--accent-2);
+      bottom: -10%;
+      left: -5%;
+      animation-delay: -6s;
+    }
+    .orb-3 {
+      width: 300px;
+      height: 300px;
+      background: #fd79a8;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation-delay: -12s;
+    }
+    @keyframes float {
+      0%, 100% { transform: translate(0,0) scale(1); }
+      33% { transform: translate(40px, -30px) scale(1.1); }
+      66% { transform: translate(-30px, 40px) scale(0.9); }
+    }
+
+    /* ===== کادر اصلی ===== */
+    .error-container {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      width: 100%;
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border-color);
+      border-radius: 40px;
+      padding: 50px 40px 40px;
+      box-shadow: var(--shadow);
+      text-align: center;
+      transition: all 0.4s;
+    }
+
+    /* ===== لوگو ===== */
+    .logo-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .logo-img {
+      height: 60px;
+      width: auto;
+      border-radius: 12px;
+    }
+    .logo-text {
+      font-size: 2rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ===== کد خطا ===== */
+    .error-code {
+      font-size: 8rem;
+      font-weight: 900;
+      line-height: 1;
+      background: linear-gradient(135deg, var(--accent), #fd79a8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin: 10px 0 4px;
+      letter-spacing: -4px;
+    }
+
+    /* ===== عنوان و توضیح ===== */
+    .error-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .error-desc {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 480px;
+      margin: 0 auto 30px;
+      line-height: 1.8;
+    }
+
+    /* ===== دکمه‌ها ===== */
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 36px;
+      border-radius: 50px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #fff;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: all 0.3s;
+      text-decoration: none;
+    }
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 40px rgba(108,92,231,0.35);
+    }
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 36px;
+      border-radius: 50px;
+      background: transparent;
+      color: var(--text-primary);
+      font-weight: 600;
+      border: 1px solid var(--border-color);
+      cursor: pointer;
+      font-size: 1rem;
+      transition: all 0.3s;
+      text-decoration: none;
+    }
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(108,92,231,0.15);
+    }
+
+    /* ===== دکمه زبان و تم ===== */
+    .controls {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .ctrl-btn {
+      background: var(--glass-bg);
+      border: 1px solid var(--border-color);
+      padding: 8px 18px;
+      border-radius: 30px;
+      color: var(--text-secondary);
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      backdrop-filter: blur(4px);
+    }
+    .ctrl-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .ctrl-btn i {
+      font-size: 1rem;
+    }
+
+    /* ===== فوتر کوچک ===== */
+    .footer-note {
+      margin-top: 24px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border-color);
+      padding-top: 18px;
+    }
+    .footer-note a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .footer-note a:hover {
+      text-decoration: underline;
+    }
+
+    /* ===== واکنش‌گرایی ===== */
+    @media (max-width: 600px) {
+      .error-container { padding: 30px 20px; }
+      .error-code { font-size: 5.5rem; }
+      .error-title { font-size: 1.6rem; }
+      .error-desc { font-size: 0.95rem; }
+      .btn-group { flex-direction: column; width: 100%; }
+      .btn-primary, .btn-outline { width: 100%; justify-content: center; }
+      .logo-text { font-size: 1.5rem; }
+      .logo-img { height: 48px; }
+    }
+    @media (max-width: 400px) {
+      .error-code { font-size: 4.2rem; }
+      .error-title { font-size: 1.3rem; }
+      .controls { flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== پس‌زمینه ===== -->
+  <div class="error-bg">
+    <div class="gradient-orb orb-1"></div>
+    <div class="gradient-orb orb-2"></div>
+    <div class="gradient-orb orb-3"></div>
+  </div>
+
+  <!-- ===== کادر اصلی ===== -->
+  <main class="error-container" id="errorContainer">
+
+    <!-- لوگو -->
+    <div class="logo-wrap">
+      <img src="logo.png" alt="SAMGEN" class="logo-img" onerror="this.style.display='none'" />
+      <span class="logo-text">SAMGEN</span>
+    </div>
+
+    <!-- کد خطا -->
+    <div class="error-code">۴۰۴</div>
+
+    <!-- عنوان و توضیح (دو زبانه) -->
+    <h1 class="error-title" id="errorTitle">صفحه پیدا نشد</h1>
+    <p class="error-desc" id="errorDesc">
+      متأسفیم، صفحه‌ای که به دنبال آن هستید وجود ندارد یا به جای دیگری منتقل شده است.
+    </p>
+
+    <!-- دکمه‌ها -->
+    <div class="btn-group">
+      <a href="/" class="btn-primary" id="homeBtn">
+        <i class="fas fa-home"></i>
+        <span>بازگشت به خانه</span>
+      </a>
+      <a href="javascript:history.back()" class="btn-outline" id="backBtn">
+        <i class="fas fa-arrow-left"></i>
+        <span>بازگشت به صفحه قبل</span>
+      </a>
+    </div>
+
+    <!-- کنترل‌های زبان و تم -->
+    <div class="controls">
+      <button class="ctrl-btn" id="themeToggle">
+        <i class="fas fa-moon"></i>
+        <span id="themeLabel">تم</span>
+      </button>
+      <button class="ctrl-btn" id="langToggle">
+        <i class="fas fa-globe"></i>
+        <span id="langLabel">فا</span>
+      </button>
+    </div>
+
+    <!-- فوتر -->
+    <div class="footer-note">
+      <a href="/">samgen.ir</a> &nbsp;·&nbsp; <span id="footerText">هلدینگ سام‌جن</span>
+    </div>
+  </main>
+
+  <script>
+    (function() {
+      'use strict';
+
+      // ========== دیکشنری ==========
+      const dict = {
+        fa: {
+          title: 'صفحه پیدا نشد',
+          desc: 'متأسفیم، صفحه‌ای که به دنبال آن هستید وجود ندارد یا به جای دیگری منتقل شده است.',
+          home: 'بازگشت به خانه',
+          back: 'بازگشت به صفحه قبل',
+          theme: 'روز/شب',
+          footer: 'هلدینگ سام‌جن'
+        },
+        en: {
+          title: 'Page Not Found',
+          desc: 'Sorry, the page you are looking for does not exist or has been moved elsewhere.',
+          home: 'Back to Home',
+          back: 'Go Back',
+          theme: 'Day/Night',
+          footer: 'SAMGEN Holding'
+        }
+      };
+
+      // ========== عناصر ==========
+      const html = document.documentElement;
+      const titleEl = document.getElementById('errorTitle');
+      const descEl = document.getElementById('errorDesc');
+      const homeBtn = document.getElementById('homeBtn');
+      const backBtn = document.getElementById('backBtn');
+      const langLabel = document.getElementById('langLabel');
+      const themeToggle = document.getElementById('themeToggle');
+      const themeLabel = document.getElementById('themeLabel');
+      const langToggle = document.getElementById('langToggle');
+      const footerText = document.getElementById('footerText');
+
+      let currentLang = 'fa';
+      let currentTheme = 'light';
+
+      // ========== اعمال زبان ==========
+      function setLanguage(lang) {
+        currentLang = lang;
+        const t = dict[lang];
+        titleEl.textContent = t.title;
+        descEl.textContent = t.desc;
+        homeBtn.querySelector('span').textContent = t.home;
+        backBtn.querySelector('span').textContent = t.back;
+        themeLabel.textContent = t.theme;
+        footerText.textContent = t.footer;
+        langLabel.textContent = lang === 'fa' ? 'فا' : 'EN';
+
+        // تغییر جهت
+        html.setAttribute('dir', lang === 'fa' ? 'rtl' : 'ltr');
+        html.setAttribute('lang', lang);
+
+        // آیکون دکمه بازگشت
+        const icon = backBtn.querySelector('i');
+        if (lang === 'fa') {
+          icon.className = 'fas fa-arrow-right';
+        } else {
+          icon.className = 'fas fa-arrow-left';
+        }
+
+        localStorage.setItem('samgen-lang-404', lang);
+      }
+
+      // ========== اعمال تم ==========
+      function setTheme(theme) {
+        currentTheme = theme;
+        html.setAttribute('data-theme', theme);
+        const icon = themeToggle.querySelector('i');
+        if (theme === 'dark') {
+          icon.className = 'fas fa-sun';
+        } else {
+          icon.className = 'fas fa-moon';
+        }
+        localStorage.setItem('samgen-theme-404', theme);
+      }
+
+      function toggleTheme() {
+        setTheme(currentTheme === 'light' ? 'dark' : 'light');
+      }
+
+      function toggleLanguage() {
+        setLanguage(currentLang === 'fa' ? 'en' : 'fa');
+      }
+
+      // ========== بارگذاری اولیه ==========
+      // زبان
+      const savedLang = localStorage.getItem('samgen-lang-404');
+      if (savedLang && (savedLang === 'fa' || savedLang === 'en')) {
+        setLanguage(savedLang);
+      } else {
+        setLanguage('fa');
+      }
+
+      // تم
+      const savedTheme = localStorage.getItem('samgen-theme-404');
+      if (savedTheme) {
+        setTheme(savedTheme);
+      } else {
+        // تشخیص تم سیستم
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          setTheme('dark');
+        } else {
+          setTheme('light');
+        }
+      }
+
+      // ========== رویدادها ==========
+      themeToggle.addEventListener('click', toggleTheme);
+      langToggle.addEventListener('click', toggleLanguage);
+
+      // دکمه بازگشت به صفحه قبل
+      backBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.history.back();
+      });
+
+      // ========== (اختیاری) هماهنگی با تم اصلی سایت ==========
+      // اگر کاربر از صفحه اصلی به اینجا آمده، تم و زبان را هماهنگ می‌کنیم
+      // اما ترجیح می‌دهیم تنظیمات مستقل باشند.
+
+      console.log('✅ صفحه ۴۰۴ سفارشی SAMGEN بارگذاری شد.');
+    })();
+  </script>
+
+</body>
+</html>
